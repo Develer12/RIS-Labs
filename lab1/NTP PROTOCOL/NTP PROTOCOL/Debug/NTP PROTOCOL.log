@@ -1,0 +1,5 @@
+﻿  NTP PROTOCOL.cpp
+d:\subject\рис\lab\ris_1\ntp protocol\ntp protocol\ntp protocol.cpp(47): warning C4307: *: переполнение целой константы
+d:\subject\рис\lab\ris_1\ntp protocol\ntp protocol\ntp protocol.cpp(64): warning C4309: =: усечение константного значения
+d:\subject\рис\lab\ris_1\ntp protocol\ntp protocol\ntp protocol.cpp(82): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  NTP PROTOCOL.vcxproj -> D:\Subject\РИС\Lab\RIS_1\NTP PROTOCOL\Debug\NTP PROTOCOL.exe
