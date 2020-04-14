@@ -1,0 +1,6 @@
+﻿  ServerU.cpp
+d:\subject\рис\lab\lab2.2\serveru\serveru\serveru.cpp(123): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  c:\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1316): note:  см. объявление "itoa"
+d:\subject\рис\lab\lab2.2\serveru\serveru\serveru.cpp(220): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note:  см. объявление "strcpy"
+  ServerU.vcxproj -> D:\Subject\РИС\Lab\lab2.2\ServerU\Debug\ServerU.exe
