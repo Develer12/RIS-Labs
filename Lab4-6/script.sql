@@ -12,7 +12,7 @@ Create table Watts
 (
 	id int,
 	watt int,
-	date date
+	date datetimeoffset
 );
 go
 
@@ -22,7 +22,7 @@ Create table Watts
 (
 	id int,
 	watt int,
-	date date
+	date datetimeoffset
 );
 go
 
@@ -32,6 +32,9 @@ Create table Watts
 (
 	id int,
 	watt int,
-	date date
+	date datetimeoffset
 );
 go
+
+
+--datetimeoffset //SYSDATETIMEOFFSET

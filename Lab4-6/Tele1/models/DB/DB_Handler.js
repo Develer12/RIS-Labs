@@ -6,7 +6,7 @@ const config =
 {
   user:'Develer12',
   password: 'admin',
-  server:'DESKTOP-U4BLHC6', Database:'RISmain'
+  server:'DESKTOP-U4BLHC6', Database:'RIS1'
 };
 let use = 'use RISmain;';
 
@@ -53,17 +53,16 @@ class DB {
             let command = `${use} INSERT INTO Watts values `;
             body.forEach(fields => {
                 command += '(';
-                Object.keys(fields).forEach(field =>{
-                    if(field == 'date')
-                        command += `'${fields[field]}',`;
-                    else{
-                        command += `${fields[field]},`;
-                    }
-                });
-                command = command.replace(/.$/,"),");
+                Object.keys(fields).forEach(field =>
+                    {
+                        let fieldType = Number.isInteger(fields[field]) ? sql.Int : sql.NVarChar;
+                        req.input(field, fieldType, fields[field]);
+                        command += `@${field},`;
+                    });
+                    command = command.replace(/.$/,") ,");
             });
             command = command.replace(/.$/,";");
-            console.log(command)
+
             return req.query(command);
         });
     }
