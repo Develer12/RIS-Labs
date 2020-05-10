@@ -27,7 +27,7 @@ app.listen(PORT, () =>{
         .catch((err) => {
             console.log(`Request GENERATE ERROR: ${err}`);
         })
-    }, 10 * minute);
+    }, 1 * minute);
 
     let timer2 = setInterval(() => {
         let serv = [];
@@ -49,27 +49,36 @@ app.listen(PORT, () =>{
                 let port = 3000 + Number(el);
                 request({
                     method: 'GET',
-                    uri: `http://localhost:${port}/api/watt/${el}`,
+                    uri: `http://localhost:${port}/api/watt/date/max/${el}`,
                     json: true
                 })
                 .then((response) => {
-                    console.log('post');
-                    if(response){
-                        request({
-                            method: 'POST',
-                            uri: `http://localhost:${PORT}/api`,
-                            json: true,
-                            body: response
-                        })
-                        .catch((err) => {
-                            console.log(`Request POST ERROR: ${err}`);
-                        });
-                    }
-        
-        
+                    request({
+                        method: 'GET',
+                        uri: `http://localhost:${port}/api/watt/date/${el}`,
+                        body: {date: response[0].date},
+                        json: true
+                    })
+                    .then((response) => {
+                        console.log('post');
+                        if(response){
+                            request({
+                                method: 'POST',
+                                uri: `http://localhost:${PORT}/api`,
+                                json: true,
+                                body: response
+                            })
+                            .catch((err) => {
+                                console.log(`Request POST ERROR: ${err}`);
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(`Request GET data FROM SERV ERROR: ${err}`);
+                    });
                 })
                 .catch((err) => {
-                    console.log(`Request GET data FROM SERV ERROR: ${err}`);
+                    console.log(`Request GET max date FROM SERV ERROR: ${err}`);
                 });
             });
         })

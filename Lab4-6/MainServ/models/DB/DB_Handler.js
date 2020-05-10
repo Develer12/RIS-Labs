@@ -24,6 +24,14 @@ class DB {
         return connectionPool.then(pool => pool.query(`${use} SELECT * FROM Watts where id = ${id}`));
     }
 
+    getMaxDate(id){
+        return connectionPool.then(pool => pool.query(`${use} select max(date) as [date] from Watts where id = ${id}`));
+    }
+
+    getFromDate(id, date){
+        return connectionPool.then(pool => pool.query(`${use} SELECT * FROM Watts where id = ${id} and date > '${date}'`));
+    }
+
     getService(){
         return connectionPool.then(pool => pool.query(`${use} SELECT DISTINCT id FROM Watts`));
     }
